@@ -2,9 +2,9 @@ name: Java CI with Maven
 
 on:
   push:
-    branches: [ "master", "patch-1" ]
+    branches: [ "master" ]
   pull_request:
-    branches: [ "master", "patch-1" ]
+    branches: [ "master" ]
 
 jobs:
   build:
@@ -19,11 +19,11 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
         cache: maven
-
+        
     - name: Build with Maven
       run: mvn -B package --file pom.xml
 
-    - name: Upload Jar Artifact
+    - name: Upload Artifact
       uses: actions/upload-artifact@v4
       with:
         name: LobbyPvP-Plugin
